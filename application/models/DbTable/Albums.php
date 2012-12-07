@@ -3,6 +3,13 @@
 class Application_Model_DbTable_Albums extends Zend_Db_Table_Abstract {
 
     protected $_name = 'albums';
+    
+       protected $_referenceMap = array(
+	'songs' => array(
+	    'columns' => 'id',
+	    'refTableClass' => 'Application_Model_DbTable_Songs',
+	)
+    );
 
     public function getAlbum($id) {
 	$id = (int) $id;

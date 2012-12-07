@@ -1,0 +1,22 @@
+<?php
+//var_dump($this->element->artist );
+?>
+
+<form class="form-horizontal" method="<?php echo $this->element->getMethod(); ?>" action="<?php echo $this->element->getAction(); ?>">
+    <div class="control-group">
+	<div class="controls">
+	    <?php echo $this->element->username ?>
+	</div>
+    </div>
+    <div class="control-group">
+	<div class="controls">
+	     <?php echo $this->element->password ?>
+	</div>
+    </div>
+    <div class="control-group">
+	<div class="controls">
+	    <?php echo $this->element->submit ?>
+	    <?php echo $this->element->back ?>
+	</div>
+    </div>
+</form>

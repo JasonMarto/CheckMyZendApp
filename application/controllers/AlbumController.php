@@ -20,36 +20,37 @@ class AlbumController extends Zend_Controller_Action {
 	$formAlbum->add();
 	//$form->submit->setLabel('Add');
 	//$form->add;
-
 	//Récupération du formulaire
 	if ($this->getRequest()->isPost()) {
 	    $formData = $this->getRequest()->getPost();
-	    if(isset($formData['back'])){
+	    if (isset($formData['back'])) {
 		$this->_helper->redirector('index');
-	    }
-	    else{
-	    
-	    if ($formAlbum->isValid($formData)) {	
-
-		$artist = $formAlbum->getValue('artist');
-		$title = $formAlbum->getValue('title');
-		$albums = new Application_Model_DbTable_Albums();
-		$albums->addAlbum($artist, $title);
-		
-	    	$this->_helper->FlashMessenger('Successfull Save !');
-
 	    } else {
-		$formAlbum->populate($formData);
+
+		if ($formAlbum->isValid($formData)) {
+
+		    $artist = $formAlbum->getValue('artist');
+		    $title = $formAlbum->getValue('title');
+		    $albums = new Application_Model_DbTable_Albums();
+		    $albums->addAlbum($artist, $title);
+
+		    $this->_helper->FlashMessenger('Successfull Save !');
+		    // Et pour envoyer les messages à la vue :
+		    
+		   
+		} else {
+		    $formAlbum->populate($formData);
+		}
 	    }
 	}
-	}
+	$this->view->messages = $this->_helper->FlashMessenger->getMessages();
 	$this->view->form = $formAlbum;
     }
 
     public function editAction() {
 	// action body
 	$formAlbum = new Application_Form_Album();
-	
+
 	$formAlbum->add();
 
 	if ($this->getRequest()->isPost()) {

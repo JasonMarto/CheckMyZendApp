@@ -10,12 +10,14 @@ echo $this->doctype();
 	<?php echo $this->headTitle(); ?>
 	<?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bootstrap-responsive.min.css'); ?>
 	<?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bootstrap.min.css'); ?>
+	<?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/bootstrap.js'); ?>
     </head>
     <body>
 	<div class="container">
 	    <div id="content">
 		<div class="page-header">
 		    <h1><?php echo $this->escape($this->title); ?> </h1>
+		    <p class="text-success"><?php echo $this->escape($this->man); ?></p>
 		</div>
 		<?php echo $this->layout()->content; ?>
 	    </div>

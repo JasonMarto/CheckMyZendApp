@@ -10,6 +10,8 @@ echo $this->doctype();
 	<?php echo $this->headTitle(); ?>
 	<?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bootstrap-responsive.min.css'); ?>
 	<?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bootstrap.min.css'); ?>
+	<?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/bootstrap.js'); ?>
+
     </head>
     <body>
 	<div class="container">

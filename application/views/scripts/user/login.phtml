@@ -1,0 +1,11 @@
+<?php
+$this->title = "Login User";
+
+if(!empty($this->user)){
+    $this->man = $this->user->username ;
+}
+$this->headTitle($this->title);
+
+
+echo $this->formUser ;
+?>

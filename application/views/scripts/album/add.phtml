@@ -1,5 +1,10 @@
 <?php
 $this->title = "Add new album";
 $this->headTitle($this->title);
+if(!empty($this->messages)){
+    echo '<div class="alert fade in">
+	<button class="close" data-dismiss="alert" type="button">×</button>
+	'. $this->messages[0] .'</div>';
+}
 echo $this->form ;
 ?>
